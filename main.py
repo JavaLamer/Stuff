@@ -41,19 +41,6 @@ def errors(error):
         "time": datetime.now().strftime("%H:%M:%S")
     }
     all_messages.append(error_message)
-
-
-
-
-
-add_message("Майк", "Всем приветы в этом чате")
-add_message("Чапа", "Что такое Путхон?")
-add_message("Васисуалий", "Пайтон это очень круто, гыгыгы")
-add_message("Васисуалий12", "Пайтон это очень круто, гыгыгы")
-add_message("Васисуалий23", "Пайтон это очень круто, гыгыгы")
-add_message("Васисуалий44", "Пайтон это очень круто, гыгыгы")
-
-
 @app.route("/get_messages")
 def getMessages():
     return {"messages": all_messages}
@@ -77,5 +64,8 @@ def send_message():
 def chat_def():
     return render_template("html_file.html")
 
+@app.route("/info")
+def inform_def():
+    return f"Всего сообщений: - {len(all_messages)}"
 
 app.run(debug=True)
